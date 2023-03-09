@@ -1,0 +1,98 @@
+.navbar {
+  border-bottom: $navbar-border-bottom;
+  box-shadow: $navbar-box-shadow;
+
+  @include media-breakpoint-down(md) {
+    width: 100vw;
+  }
+}
+
+.navbar .avatar {
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
+
+.navbar-nav {
+  direction: ltr;
+}
+
+.navbar-align {
+  margin-left: auto;
+}
+
+.nav-icon {
+  padding: .1rem .8rem;
+  display: block;
+  font-size: 1.5rem;
+  color: $gray-600;
+  transition: $transition-appearance-fast;
+  line-height: 1.4;
+
+  &:after {
+    display: none !important;
+  }
+
+  &:hover,
+  &.active {
+    color: $primary;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.nav-item {
+  .indicator {
+    background: $primary;
+    box-shadow: $box-shadow;
+    border-radius: 50%;
+    display: block;
+    height: 18px;
+    width: 18px;
+    padding: 1px;
+    position: absolute;
+    top: 0;
+    right: -8px;
+    text-align: center;
+    transition: top .1s ease-out;
+    font-size: 0.675rem;
+    color: $white;
+  }
+
+  &:hover .indicator {
+    top: -4px;
+  }
+
+  a:focus {
+    outline: 0;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .navbar .avatar {
+    max-height: 47px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .nav-icon {
+    padding: .1rem .75rem;
+  }
+
+  .dropdown,
+  .dropleft,
+  .dropright,
+  .dropup {
+    position: inherit;
+  }
+
+  .nav-item .nav-link:after {
+    display: none;
+  }
+}
