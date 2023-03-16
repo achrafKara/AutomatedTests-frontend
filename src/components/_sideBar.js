@@ -18,8 +18,8 @@ function SideBar ({collapsed, roles}) {
 
                 <ul className="sidebar-nav">
 
-                    <li className="sidebar-header">
-                    Tools & Components
+                    <li className="sidebar-header mb-2">
+                        Pages
                     </li>
 
                     <li className={`sidebar-item ${location === '/' ? 'active' : ''}`}>

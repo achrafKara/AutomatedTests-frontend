@@ -13,7 +13,7 @@ const TestReport = ({report}) => {
       const testcases = testcase instanceof Array ? testcase: [testcase];
       suits.push(
       <tr key={`suit${index}`} className="suit">
-        <th>suit-{index}</th>
+        <th>Suit{ testsuiteArr.length > 1 ? index : '' }</th>
         <td className='fw-bold'>{attr.name}</td>
         <td className='fw-bold'>{attr.tests}</td>
         <td className='fw-bold'>{attr.time}</td>
@@ -36,10 +36,11 @@ const TestReport = ({report}) => {
     
       testcases.forEach((val, ind)=> {
         const {_attributes: attr, failure}= val;
-
+        
         suits.push(
-          <tr key={'s'+index+'t'+ind}>
-            <th>test-{ind}</th>
+          <tr key={'s'+index+'t'+ind}
+          className={failure ? 'failure-bg' : 'passed-bg'}>
+            <th>test {ind}</th>
             <td>{attr.name}</td>
             <td></td>
             <td>{attr.time}</td>

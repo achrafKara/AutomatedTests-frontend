@@ -50,7 +50,6 @@ function Tests() {
         setLoading(false);
         if (resJson.err) return console.log(resJson);
         const {result, QRs} = resJson
-        console.log(result, QRs);
         setReport(result);
         setQRs(QRs);
       })
