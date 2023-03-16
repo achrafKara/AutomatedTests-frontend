@@ -8,13 +8,14 @@ import { AuthProvider } from './context/authentication';
 
 import ProtectedRoute from './authentication/protected';
 import AuthRoute from './authentication/auth';
+import Splash from './pages/splash';
+import Tests from './pages/tests';
+import Dashboard from './pages/dashboard';
+import Descriptions from './pages/descriptions';
 
-const Splash = lazy(() => import('./pages/splash'));
-const Tests = lazy(() => import('./pages/tests'));
-const Dashboard = lazy(() => import('./pages/dashboard'));
-const Descriptions = lazy(() => import('./pages/descriptions'));
 const CreateUser = lazy(() => import('./pages/create_user'));
 const SignIn = lazy(() => import('./pages/signin'));
+const Profile = lazy(() => import('./pages/profile'));
 
 function App() {
 
@@ -25,27 +26,32 @@ function App() {
           <Route
             exact
             path="/splash"
-            element={<Component Child={Splash} />}
+            element={<Splash />}
           />
           <Route
             exact
             path="/"
-            element={<Component Child={Tests} />}
-          />
-          <Route
-            exact
-            path="/create-user"
-            element={<Component Child={CreateUser}/>}
+            element={<Tests />}
           />
           <Route
             exact
             path="/dashboard"
-            element={<Component Child={Dashboard} />}
+            element={<Dashboard />}
           />
           <Route
             exact
             path="/descriptions"
-            element={<Component Child={Descriptions} />}
+            element={<Descriptions />}
+          />
+          <Route
+            exact
+            path="/create-user"
+            element={<Component Child={CreateUser} />}
+          />
+          <Route
+            exact
+            path="/profile"
+            element={<Component Child={Profile} />}
           />
         </Route>
         

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 
 function Header ({toggle, user}) {
@@ -21,10 +22,10 @@ function Header ({toggle, user}) {
 						</a>
 					</li>
 					<li className="nav-item">
-						<a className="nav-link d-sm-inline-block" href="#" >
+						<Link to='/profile' className="nav-link d-sm-inline-block">
 							<strong className="text-dark">{user.name}</strong> 
 							<img src="img/avatar.png" className="avatar img-fluid rounded ms-2" alt="Charles Hall" />
-						</a>
+						</Link>
 					</li>
 				</ul>
 			</div>
