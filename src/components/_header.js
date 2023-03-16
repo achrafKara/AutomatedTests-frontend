@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 
-function Header ({toggle}) {
+function Header ({toggle, user}) {
 
     return (
         <nav className="navbar navbar-expand navbar-light navbar-bg">
@@ -22,7 +22,8 @@ function Header ({toggle}) {
 					</li>
 					<li className="nav-item">
 						<a className="nav-link d-sm-inline-block" href="#" >
-							<span className="text-dark">Achraf Karabila</span> <img src="img/avatar.png" className="avatar img-fluid rounded me-1" alt="Charles Hall" />
+							<strong className="text-dark">{user.name}</strong> 
+							<img src="img/avatar.png" className="avatar img-fluid rounded ms-2" alt="Charles Hall" />
 						</a>
 					</li>
 				</ul>

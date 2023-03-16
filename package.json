@@ -21,7 +21,8 @@
     "sass": "^1.58.3",
     "simplebar": "^6.2.1",
     "simplebar-react": "^3.2.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xregexp": "^5.1.1"
   },
   "scripts": {
     "start": "PORT=3031 react-scripts start",

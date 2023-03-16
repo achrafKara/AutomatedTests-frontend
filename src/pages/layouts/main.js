@@ -2,8 +2,7 @@ import { useState } from 'react';
 import SideBar from '../../components/_sideBar';
 import Header from '../../components/_header';
 
-
-function MainLayout({children}) {
+function MainLayout({children, roles, user}) {
 
     const [collapsed, setCollapsed] = useState(false);
 
@@ -14,11 +13,11 @@ function MainLayout({children}) {
     return (
         <div className="wrapper">
 
-            <SideBar collapsed={collapsed}/>
+            <SideBar collapsed={collapsed} roles={roles}/>
 
             <div className="main">
 
-                <Header toggle={toggle} />
+                <Header toggle={toggle} user={user} />
 
                 <main className="content">
 

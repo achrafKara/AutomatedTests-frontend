@@ -37,3 +37,11 @@
     border-bottom-right-radius: $card-border-radius;
   }
 }
+
+.card-stat {
+  background-color: rgba(54, 162, 235, 0.2);
+}
+
+.card-stat-error {
+  background-color: rgba(220,53,69,.15);
+}

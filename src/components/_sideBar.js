@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link, useLocation } from "react-router-dom";
 import SimpleBar from 'simplebar-react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 
-function SideBar ({collapsed}) {
+function SideBar ({collapsed, roles}) {
 
-    const [ activeItem, setActiveItem ] = useState('_tests');
-
-    const toggleItem = (e) => {
-        const name = e.currentTarget.getAttribute('name');
-        setActiveItem(name);
-    }
+    const location = useLocation().pathname; 
+    const admin = roles.includes('ADMIN');
 
     return (
         <nav id="sidebar" className={`sidebar js-sidebar ${collapsed ? 'collapsed' : ''}`}>
@@ -25,27 +22,38 @@ function SideBar ({collapsed}) {
                     Tools & Components
                     </li>
 
-                    <li className={`sidebar-item ${activeItem === '_dashboard' ? 'active' : ''}`}>
-                        <div className="sidebar-link" name="_dashboard" onClick={toggleItem}>
-                            <FontAwesomeIcon icon={['fas', 'chart-pie']} size="lg" 
-                            /> <span className="align-middle">Dashboard</span>
-                        </div>
-                    </li>
-
-                    <li className={`sidebar-item ${activeItem === '_tests' ? 'active' : ''}`}>
-                        <div className="sidebar-link" name="_tests" onClick={toggleItem}>
+                    <li className={`sidebar-item ${location === '/' ? 'active' : ''}`}>
+                        <Link to='/' className="sidebar-link">
                             <FontAwesomeIcon icon={['fas', 'flask-vial']} size="lg" 
                             /> <span className="align-middle">Tests</span>
-                        </div>
+                        </Link>
                     </li>
 
-                    <li className={`sidebar-item ${activeItem === '_report' ? 'active' : ''}`}>
-                        <div className="sidebar-link" name="_report" onClick={toggleItem}>
-                            <FontAwesomeIcon icon={['fas', 'table-list']} size="lg" 
-                            /> <span className="align-middle">Reports</span>
-                        </div>
+                    <li className={`sidebar-item ${location === '/dashboard' ? 'active' : ''}`}>
+                        <Link to='/dashboard' className="sidebar-link">
+                            <FontAwesomeIcon icon={['fas', 'chart-pie']} size="lg" 
+                            /> <span className="align-middle">Dashboard</span>
+                        </Link>
                     </li>
 
+                    <li className={`sidebar-item ${location === '/descriptions' ? 'active' : ''}`}>
+                        <Link to='/descriptions' className="sidebar-link">
+                            <FontAwesomeIcon icon={['fas', 'file-invoice']} size="lg" 
+                            /> <span className="align-middle">Descriptions</span>
+                        </Link>
+                    </li>
+
+                    {
+                        admin 
+                        ? <li className={`sidebar-item ${location === '/create-user' ? 'active' : ''}`}>
+                                <Link to='/create-user' className="sidebar-link">
+                                    <FontAwesomeIcon icon={['fas', 'user-plus']} size="lg" 
+                                    /> <span className="align-middle">Create users</span>
+                                </Link>
+                            </li>
+                        : null
+                    }
+                    
                 </ul>
             
             </SimpleBar>

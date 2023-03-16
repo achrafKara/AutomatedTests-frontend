@@ -3,3 +3,7 @@
 
 .vw-50 { width: 50vw !important; }
 .vh-50 { height: 50vh !important; }
+
+@include media-breakpoint-up(md) {
+    .max-w-50 { max-width: 50%;}
+}
